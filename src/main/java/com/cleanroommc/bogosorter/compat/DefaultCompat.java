@@ -517,6 +517,12 @@ public class DefaultCompat {
                 builder.addGenericSlotGroup();
             });
         }
+
+        if (Loader.isModLoaded("farmersdelight")) {
+            api.addCompatSimple(getClass("com.wdcftgg.farmersdelightlegacy.common.inventory.ContainerCabinet"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+        }
     }
 
     private static ISlot avaritiaddons$findSlot(List<ISlot> slots, ItemStack itemStack, boolean emptyOnly) {
