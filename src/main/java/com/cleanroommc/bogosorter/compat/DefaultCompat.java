@@ -526,7 +526,14 @@ public class DefaultCompat {
 
         if (Loader.isModLoaded("extradelightlegacy")) {
             api.addCompatSimple(getClass("xy177.extradelightlegacy.common.gui.ContainerDisplayCabinet"), (container, builder) -> {
-                builder.addGenericSlotGroup();
+                builder.addGenericSlotGroup().buttonPosSetter((slotGroup, buttonPos) -> {
+                    buttonPos.setPos(0, 1000);
+                    for (ISlot slot : slotGroup.getAllSlots()) {
+                        if (slot.bogo$getX() >= 0 && slot.bogo$getY() >= 0 && slot.bogo$isEnabled()) {
+                            buttonPos.setPos(Math.max(buttonPos.getX(), slot.bogo$getX() + 17), Math.min(buttonPos.getY(), slot.bogo$getY() - 2));
+                        }
+                    }
+                });
             });
         }
 
@@ -538,7 +545,10 @@ public class DefaultCompat {
 
         if (Loader.isModLoaded("thaumadditions")) {
             api.addCompatSimple(getClass("org.zeith.thaumicadditions.inventory.container.ContainerChester"), (container, builder) -> {
-                builder.addGenericSlotGroup();
+                builder.addGenericSlotGroup().buttonPosSetter((slotGroup, buttonPos) -> {
+                    ISlot topRight = slotGroup.getAllSlots().get(slotGroup.getRowSize() - 1);
+                    buttonPos.setPos(topRight.bogo$getX() - 25, topRight.bogo$getY() - 2);
+                });
             });
         }
 
