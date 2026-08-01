@@ -529,6 +529,12 @@ public class DefaultCompat {
                 builder.addGenericSlotGroup();
             });
         }
+
+        if (Loader.isModLoaded("thaumicaugmentation")) {
+            api.addCompatSimple(getClass("thecodex6824.thaumicaugmentation.common.container.ContainerWardedChest"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+        }
     }
 
     private static ISlot avaritiaddons$findSlot(List<ISlot> slots, ItemStack itemStack, boolean emptyOnly) {
