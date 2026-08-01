@@ -502,6 +502,21 @@ public class DefaultCompat {
         if (Loader.isModLoaded("ironbackpacks")) {
             api.addGenericCompat(gr8pefish.ironbackpacks.container.ContainerBackpack.class);
         }
+
+        if (Loader.isModLoaded("cfm")) {
+            api.addCompatSimple(getClass("com.mrcrayfish.furniture.gui.containers.ContainerCabinet"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+            api.addCompatSimple(getClass("com.mrcrayfish.furniture.gui.containers.ContainerWallCabinet"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+            api.addCompatSimple(getClass("com.mrcrayfish.furniture.gui.containers.ContainerOldWallCabinet"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+            api.addCompatSimple(getClass("com.mrcrayfish.furniture.gui.containers.ContainerBedsideCabinet"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+        }
     }
 
     private static ISlot avaritiaddons$findSlot(List<ISlot> slots, ItemStack itemStack, boolean emptyOnly) {
