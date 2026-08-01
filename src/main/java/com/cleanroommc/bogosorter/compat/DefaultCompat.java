@@ -535,6 +535,12 @@ public class DefaultCompat {
                 builder.addGenericSlotGroup();
             });
         }
+
+        if (Loader.isModLoaded("thaumadditions")) {
+            api.addCompatSimple(getClass("org.zeith.thaumicadditions.inventory.container.ContainerChester"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+        }
     }
 
     private static ISlot avaritiaddons$findSlot(List<ISlot> slots, ItemStack itemStack, boolean emptyOnly) {
