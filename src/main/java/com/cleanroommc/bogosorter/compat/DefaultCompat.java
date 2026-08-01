@@ -523,6 +523,12 @@ public class DefaultCompat {
                 builder.addGenericSlotGroup();
             });
         }
+
+        if (Loader.isModLoaded("extradelightlegacy")) {
+            api.addCompatSimple(getClass("xy177.extradelightlegacy.common.gui.ContainerDisplayCabinet"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+        }
     }
 
     private static ISlot avaritiaddons$findSlot(List<ISlot> slots, ItemStack itemStack, boolean emptyOnly) {
