@@ -542,6 +542,12 @@ public class DefaultCompat {
             });
         }
 
+        if (Loader.isModLoaded("props")) {
+            api.addCompatSimple(getClass("com.mia.props.client.container.ContainerChestProps"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+        }
+
         if (Loader.isModLoaded("cqrepoured")) {
             api.addCompatSimple(getClass("team.cqr.cqrepoured.inventory.ContainerBackpack"), (container, builder) -> {
                 builder.addGenericSlotGroup();
