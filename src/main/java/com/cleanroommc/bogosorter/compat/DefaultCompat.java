@@ -178,6 +178,12 @@ public class DefaultCompat {
             });
         }
 
+        if (Loader.isModLoaded("atum")) {
+            api.addCompatSimple(getClass("com.teammetallurgy.atum.inventory.container.block.ContainerCrate"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+        }
+
         if (Loader.isModLoaded("forestry")) {
             api.addCompat(ContainerBackpack.class, (container, builder) -> {
                 if (container.inventorySlots.size() == 51) {
