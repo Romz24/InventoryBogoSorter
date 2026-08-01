@@ -541,6 +541,12 @@ public class DefaultCompat {
                 builder.addGenericSlotGroup();
             });
         }
+
+        if (Loader.isModLoaded("cqrepoured")) {
+            api.addCompatSimple(getClass("team.cqr.cqrepoured.inventory.ContainerBackpack"), (container, builder) -> {
+                builder.addGenericSlotGroup();
+            });
+        }
     }
 
     private static ISlot avaritiaddons$findSlot(List<ISlot> slots, ItemStack itemStack, boolean emptyOnly) {
